@@ -1,3 +1,7 @@
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
+
 # BloodLink – Emergency Blood Donor Network
 
 **BloodLink** is an offline-first emergency blood donor coordination platform designed for rural and semi-urban India. It connects blood donors, acceptors/patient families, health workers, and hospital staff through a verified, role-based system that can continue functioning even in low-connectivity areas.
@@ -154,18 +158,12 @@ BloodLink uses a single app with role-based access.
 
 | Layer | Technology |
 |---|---|
-| Mobile App | React Native |
+| Mobile App / Web App | React + Vite |
+| Styling | TailwindCSS / CSS |
 | Language | TypeScript |
-| Navigation | React Navigation |
-| Backend | Firebase / Supabase |
-| Database | Firestore / Supabase PostgreSQL |
-| Local Storage | SQLite / WatermelonDB |
-| Authentication | Firebase Auth / Supabase Auth |
-| Notifications | Firebase Cloud Messaging |
-| BLE Prototype | React Native BLE PLX |
-| Admin Dashboard | React.js |
+| Local Storage | LocalStorage / IndexedDB / Offline Cache |
+| AI Integration | Gemini API via Google GenAI SDK |
 | Version Control | Git & GitHub |
-| UI Design | Google Stitch / Figma |
 | IDE | Antigravity |
 
 ---
@@ -179,7 +177,7 @@ BloodLink uses a single app with role-based access.
                     │  Matching, Reports, Sync  │
                     └────────────▲─────────────┘
                                  │
-                    Internet Sync│
+                     Internet Sync│
                                  │
 ┌────────────────────┐       ┌───┴────────────────┐       ┌────────────────────┐
 │     Donor App       │◄─────►│ Health Worker App  │◄─────►│   Acceptor App      │
@@ -304,60 +302,31 @@ Privacy principles:
 ## Project Folder Structure
 
 ```text
-bloodlink-uba-project/
+bloodlink/
 │
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Input.tsx
-│   │   ├── DonorCard.tsx
-│   │   └── StatusChip.tsx
+│   │   ├── AdminDashboard.tsx
+│   │   ├── CreateRequest.tsx
+│   │   ├── DonorHome.tsx
+│   │   ├── DonorRegister.tsx
+│   │   ├── HealthWorkerDashboard.tsx
+│   │   ├── MatchingDonors.tsx
+│   │   ├── OfflineMode.tsx
+│   │   ├── RequestTracking.tsx
+│   │   ├── RoleSelection.tsx
+│   │   └── Splash.tsx
 │   │
-│   ├── navigation/
-│   │   └── AppNavigator.tsx
-│   │
-│   ├── screens/
-│   │   ├── SplashScreen.tsx
-│   │   ├── RoleSelectionScreen.tsx
-│   │   ├── DonorRegistrationScreen.tsx
-│   │   ├── DonorHomeScreen.tsx
-│   │   ├── CreateEmergencyRequestScreen.tsx
-│   │   ├── MatchingDonorsScreen.tsx
-│   │   ├── OfflineModeScreen.tsx
-│   │   ├── HealthWorkerDashboardScreen.tsx
-│   │   ├── RequestTrackingScreen.tsx
-│   │   └── AdminDashboardScreen.tsx
-│   │
-│   ├── services/
-│   │   ├── authService.ts
-│   │   ├── donorService.ts
-│   │   ├── requestService.ts
-│   │   ├── notificationService.ts
-│   │   └── bleService.ts
-│   │
-│   ├── storage/
-│   │   ├── localDb.ts
-│   │   └── syncQueue.ts
-│   │
-│   ├── data/
-│   │   └── mockData.ts
-│   │
-│   └── utils/
-│       ├── matching.ts
-│       └── validators.ts
-│
-├── docs/
-│   ├── problem_statement.md
-│   ├── mvp_features.md
-│   ├── architecture.md
-│   ├── workflow.md
-│   ├── privacy_plan.md
-│   └── week1_progress.md
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│   └── types.ts
 │
 ├── README.md
 ├── package.json
+├── tsconfig.json
+├── vite.config.ts
 └── .gitignore
 ```
 
@@ -377,67 +346,17 @@ Install dependencies:
 npm install
 ```
 
-Start Metro bundler:
-
-```bash
-npm start
+Set the Gemini API Key:
+Create a `.env.local` file in the root directory and add your key:
+```env
+VITE_GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Run on Android:
+Run the development server:
 
 ```bash
-npm run android
+npm run dev
 ```
-
----
-
-## Current Project Status
-
-### Week 1 Progress
-
-- Project scope finalized
-- Existing app gap analysis completed
-- Problem statement drafted
-- MVP features frozen
-- Tech stack selected
-- System architecture planned
-- Workflow diagram prepared
-- UI mockups started using Google Stitch
-- GitHub repository initialized
-- Documentation structure created
-
-### Upcoming Work
-
-- Finalize UI screens
-- Implement frontend navigation
-- Create mock donor and request data
-- Implement donor registration flow
-- Implement emergency request flow
-- Add basic matching logic
-- Build health-worker dashboard
-- Prepare offline local storage structure
-- Begin BLE proof-of-concept
-
----
-
-## Future Enhancements
-
-- Real-time push notifications
-- SMS fallback alerts
-- Hospital/blood-bank integration
-- QR-based donor verification
-- Advanced donor reliability score
-- Multilingual support
-- Analytics dashboard
-- eRaktKosh integration through official permission/API if available
-- Full BLE mesh-based emergency relay
-- Deployment for pilot villages and PHCs
-
----
-
-## Important Note
-
-BloodLink is a coordination platform. It does not replace medical screening, blood-bank testing, crossmatching, or hospital protocols. Final blood donation and transfusion must be performed under proper medical supervision as per applicable healthcare guidelines.
 
 ---
 

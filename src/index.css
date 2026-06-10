@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  /* BloodLink Design System Color Palette */
+  --color-brand-surface: #f9f9f9;
+  --color-brand-surface-dim: #dadada;
+  --color-brand-surface-bright: #f9f9f9;
+  --color-brand-lowest: #ffffff;
+  --color-brand-low: #f3f3f3;
+  --color-brand-container: #eeeeee;
+  --color-brand-high: #e8e8e8;
+  --color-brand-highest: #e2e2e2;
+
+  --color-primary-red: #af101a;
+  --color-primary-container-red: #d32f2f;
+  --color-on-primary-container-red: #fff2f0;
+
+  --color-secondary-blue: #0061a4;
+  --color-secondary-container-blue: #33a0fd;
+  --color-on-secondary-blue: #00355c;
+
+  --color-tertiary-green: #016619;
+  --color-tertiary-container-green: #298030;
+  --color-on-tertiary-container-green: #daffd1;
+
+  --color-outline-brand: #8f6f6c;
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes progress-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-progress-slide {
+  animation: progress-slide 1.5s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scan-line {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.015) 51%);
+  background-size: 100% 4px;
+}
+
+/* Custom shadow utilities matching Material 3 functional outline hierarchy */
+.shadow-m3-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.shadow-m3-2 {
+  box-shadow: 0 4px 6px -1px rgba(186,26,32,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
+}
+
+.shadow-m3-3 {
+  box-shadow: 0 10px 15px -3px rgba(186,26,32,0.12), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: "Roboto", sans-serif;
+}
