@@ -1,6 +1,0 @@
-{
-  "name": "BloodLink",
-  "description": "Emergency Blood Donor Network with peer-to-peer offline sync of critical alerts.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
